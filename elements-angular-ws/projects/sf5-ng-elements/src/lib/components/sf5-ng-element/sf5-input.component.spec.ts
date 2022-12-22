@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Sf5NgElementsComponent } from './sf5-ng-elements.component';
+import { Sf5InputComponent } from './sf5-input.component';
 
 describe('Sf5NgElementsComponent', () => {
-  let component: Sf5NgElementsComponent;
-  let fixture: ComponentFixture<Sf5NgElementsComponent>;
+  let component: Sf5InputComponent;
+  let fixture: ComponentFixture<Sf5InputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Sf5NgElementsComponent ]
+      declarations: [ Sf5InputComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Sf5NgElementsComponent);
+    fixture = TestBed.createComponent(Sf5InputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,237 +1,224 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "sf5-ng-elements": {
-      "projectType": "library",
-      "root": "projects/sf5-ng-elements",
-      "sourceRoot": "projects/sf5-ng-elements/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/sf5-ng-elements/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/sf5-ng-elements/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/sf5-ng-elements/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/sf5-ng-elements/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "sf5-app": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/sf5-app",
-      "sourceRoot": "projects/sf5-app/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/sf5-app",
-            "index": "projects/sf5-app/src/index.html",
-            "main": "projects/sf5-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "projects/sf5-app/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/sf5-app/src/favicon.ico",
-              "projects/sf5-app/src/assets"
-            ],
-            "styles": [
-              "projects/sf5-app/src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "sf5-ng-elements": {
+            "projectType": "library",
+            "root": "projects/sf5-ng-elements",
+            "sourceRoot": "projects/sf5-ng-elements/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "options": {
+                        "project": "projects/sf5-ng-elements/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/sf5-ng-elements/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "projects/sf5-ng-elements/tsconfig.lib.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "tsConfig": "projects/sf5-ng-elements/tsconfig.spec.json",
+                        "polyfills": ["zone.js", "zone.js/testing"]
+                    }
                 }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
             }
-          },
-          "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "sf5-app:build:production"
+        "sf5-elements-container": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
             },
-            "development": {
-              "browserTarget": "sf5-app:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "sf5-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/sf5-app/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/sf5-app/src/favicon.ico",
-              "projects/sf5-app/src/assets"
-            ],
-            "styles": [
-              "projects/sf5-app/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        }
-      }
-    },
-    "sf5-elements-user": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/sf5-elements-user",
-      "sourceRoot": "projects/sf5-elements-user/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/sf5-elements-user",
-            "index": "projects/sf5-elements-user/src/index.html",
-            "main": "projects/sf5-elements-user/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "projects/sf5-elements-user/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/sf5-elements-user/src/favicon.ico",
-              "projects/sf5-elements-user/src/assets"
-            ],
-            "styles": [
-              "projects/sf5-elements-user/src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+            "root": "projects/sf5-elements-container",
+            "sourceRoot": "projects/sf5-elements-container/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/sf5-elements-container",
+                        "index": "projects/sf5-elements-container/src/index.html",
+                        "main": "projects/sf5-elements-container/src/main.ts",
+                        "polyfills": ["zone.js"],
+                        "tsConfig": "projects/sf5-elements-container/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "projects/sf5-elements-container/src/favicon.ico",
+                            "projects/sf5-elements-container/src/assets"
+                        ],
+                        "styles": [
+                            "projects/sf5-elements-container/src/styles.scss"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "sf5-elements-container:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "sf5-elements-container:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "sf5-elements-container:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "tsConfig": "projects/sf5-elements-container/tsconfig.spec.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "projects/sf5-elements-container/src/favicon.ico",
+                            "projects/sf5-elements-container/src/assets"
+                        ],
+                        "styles": [
+                            "projects/sf5-elements-container/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
                 }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
             }
-          },
-          "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "sf5-elements-user:build:production"
+        "sf5-elements-user": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
             },
-            "development": {
-              "browserTarget": "sf5-elements-user:build:development"
+            "root": "projects/sf5-elements-user",
+            "sourceRoot": "projects/sf5-elements-user/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/sf5-elements-user",
+                        "index": "projects/sf5-elements-user/src/index.html",
+                        "main": "projects/sf5-elements-user/src/main.ts",
+                        "polyfills": ["zone.js"],
+                        "tsConfig": "projects/sf5-elements-user/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "projects/sf5-elements-user/src/favicon.ico",
+                            "projects/sf5-elements-user/src/assets"
+                        ],
+                        "styles": [
+                            "projects/sf5-elements-user/src/styles.scss"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "sf5-elements-user:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "sf5-elements-user:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "sf5-elements-user:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "tsConfig": "projects/sf5-elements-user/tsconfig.spec.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "projects/sf5-elements-user/src/favicon.ico",
+                            "projects/sf5-elements-user/src/assets"
+                        ],
+                        "styles": [
+                            "projects/sf5-elements-user/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                }
             }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "sf5-elements-user:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/sf5-elements-user/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/sf5-elements-user/src/favicon.ico",
-              "projects/sf5-elements-user/src/assets"
-            ],
-            "styles": [
-              "projects/sf5-elements-user/src/styles.scss"
-            ],
-            "scripts": []
-          }
         }
-      }
+    },
+    "cli": {
+        "analytics": "41cacce4-4b84-48c5-8bab-04aa76a296a8"
     }
-  },
-  "cli": {
-    "analytics": "41cacce4-4b84-48c5-8bab-04aa76a296a8"
-  }
 }
