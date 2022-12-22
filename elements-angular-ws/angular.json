@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "sf5-ng-elements": {
+      "projectType": "library",
+      "root": "projects/sf5-ng-elements",
+      "sourceRoot": "projects/sf5-ng-elements/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/sf5-ng-elements/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sf5-ng-elements/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/sf5-ng-elements/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/sf5-ng-elements/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "41cacce4-4b84-48c5-8bab-04aa76a296a8"
   }
 }
