@@ -6,6 +6,4 @@ import { Sf5NgElementsComponent } from './components/sf5-ng-element/sf5-ng-eleme
     imports: [],
     exports: [Sf5NgElementsComponent],
 })
-export class Sf5NgElementsModule {
-  
-}
+export class Sf5NgElementsModule {}
