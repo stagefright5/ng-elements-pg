@@ -14,6 +14,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styles: [],
 })
 export class Sf5InputComponent {
+    static CUSTOM_ELM_NAME = 'sf5-custom-input';
     @Input('value') value = '';
     @Output() ngModelChangeEvent = new EventEmitter();
 
