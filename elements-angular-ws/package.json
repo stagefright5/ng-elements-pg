@@ -7,7 +7,7 @@
         "start-lib": "ng build sf5-ng-elements --watch",
         "build-lib": "ng build sf5-ng-elements",
         "build-container": "ng build sf5-elements-container",
-        "build": "node ./dev/create-element-lib.mjs",
+        "create-element-lib": "node ./dev/create-element-lib.mjs",
         "test": "ng test"
     },
     "private": true,
