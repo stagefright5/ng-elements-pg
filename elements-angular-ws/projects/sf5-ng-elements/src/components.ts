@@ -1,10 +1,3 @@
-/*
- * Public API Surface of sf5-ng-elements
- */
-
-export * as components from './components';
-export * from './lib/mat-table-wrapper/module';
-export * from './lib/sf5-ng-elements/module';
 export { MatTableWrapperComponent } from './lib/mat-table-wrapper/mat-table-wrapper.component';
 export { MatHeaderCellWrapperComponent } from './lib/mat-table-wrapper/mat-header-cell-wrapper.component';
 export { MatHeaderRowWrapperComponent } from './lib/mat-table-wrapper/mat-header-row-wrapper.component';

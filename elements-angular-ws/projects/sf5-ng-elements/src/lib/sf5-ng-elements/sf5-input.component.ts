@@ -3,12 +3,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
     selector: 'sf5-input',
     template: `
-        <mat-form-field>
-            <input
-                matInput
-                [ngModel]="value"
-                (ngModelChange)="changed($event)"
-            />
+        <mat-form-field appearance="fill">
+            <mat-label>Input</mat-label>
+            <input matInput [ngModel]="value" (ngModelChange)="changed($event)" />
         </mat-form-field>
     `,
     styles: [],

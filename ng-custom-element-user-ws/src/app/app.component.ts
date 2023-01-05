@@ -3,14 +3,21 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-root',
     template: `
-        <sf5-custom-input [value]="v" (ngModelChangeEvent)="logIt($event)"></sf5-custom-input>
-        <sf5-custom-table [dataSource]="ds"></sf5-custom-table>
+        <ce-sf5-custom-input [value]="v" (ngModelChangeEvent)="logIt($event)"></ce-sf5-custom-input>
+        <!-- <ce-sf5-custom-table [dataSource]="ds"></ce-sf5-custom-table> -->
+        <ce-mat-table-wrapper [dataSource]="dataSource">
+            <h1 slot="table">Sample Content</h1>
+        </ce-mat-table-wrapper>
+        <sample-content>
+            <h1 slot="con">Sample Content</h1>
+        </sample-content>
     `,
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
     title = 'ng-custom-element-user-ws';
-    ds = ELMENET_DATA;
+    dataSource = ELMENET_DATA;
+    displayedColumns = ['position', 'name', 'weight', 'symbol'];
     v = `Hue ${Math.random()}`;
     logIt(e: any) {
         console.log('ewewe', e);
