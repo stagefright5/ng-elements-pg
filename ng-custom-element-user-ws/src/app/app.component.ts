@@ -1,16 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-root',
     template: `
-        <ce-sf5-custom-input [value]="v" (ngModelChangeEvent)="logIt($event)"></ce-sf5-custom-input>
-        <!-- <ce-sf5-custom-table [dataSource]="ds"></ce-sf5-custom-table> -->
-        <ce-mat-table-wrapper [dataSource]="dataSource">
-            <h1 slot="table">Sample Content</h1>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label> Here is the label </mat-label>
+            <input matInput />
+        </mat-form-field>
+        <mat-error> Here is the error </mat-error> -->
+        <ce-mat-table-wrapper [dataSource]="dataSource" class="mat-elevation-z8">
+            <!--- Note that these columns can be defined in any order.
+      The actual rendered columns are set as a property on the row definition" -->
+            <ng-container table>
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef>No.</th>
+                    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef>Weight</th>
+                    <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef>Symbol</th>
+                    <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </ng-container>
         </ce-mat-table-wrapper>
-        <sample-content>
-            <h1 slot="con">Sample Content</h1>
-        </sample-content>
     `,
     styleUrls: ['./app.component.scss'],
 })
@@ -19,8 +48,31 @@ export class AppComponent {
     dataSource = ELMENET_DATA;
     displayedColumns = ['position', 'name', 'weight', 'symbol'];
     v = `Hue ${Math.random()}`;
+
+    constructor(private _elRef: ElementRef) {}
     logIt(e: any) {
         console.log('ewewe', e);
+    }
+
+    ngAfterViewInit() {
+        // <ce-sf5-custom-input value="${`Hue ${Math.random()}`}">
+        //     <span slot="input_label_slot">Hi</span>
+        //     <span slot="input_error_slot">Error</span>
+        // </ce-sf5-custom-input>
+        const elm = document.createElement('div');
+        elm.innerHTML = `
+        <ce-sf5-custom-input value="${`Hue ${Math.random()}`}" required="true">
+            <ng-container input_label_slot>Hi</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+            <ng-container input_error_slot>Error</ng-container>
+        </ce-sf5-custom-input>
+        `;
+        (this._elRef.nativeElement as HTMLElement).appendChild(elm);
     }
 }
 

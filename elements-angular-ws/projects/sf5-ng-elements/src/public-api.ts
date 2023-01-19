@@ -12,3 +12,5 @@ export { MatCellWrapperComponent } from './lib/mat-table-wrapper/mat-cell-wrappe
 export { MatRowWrapperComponent } from './lib/mat-table-wrapper/mat-row-wrapper.component';
 export { Sf5InputComponent } from './lib/sf5-ng-elements/sf5-input.component';
 export { Sf5TableComponent } from './lib/sf5-ng-elements/sf5-table.component';
+export { Sf5ErrorComponent } from './lib/sf5-ng-elements/sf5-error.component';
+export { Sf5LabelComponent } from './lib/sf5-ng-elements/sf5-label.component';

@@ -4,10 +4,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
     selector: 'mat-header-cell-wrapper',
     template: `
         <mat-header-cell *matHeaderCellDef>
-            <slot name="header-cell"></slot>
+            <ng-content select="[header-cell]"></ng-content>
         </mat-header-cell>
     `,
-    encapsulation: ViewEncapsulation.ShadowDom
+    // encapsulation: ViewEncapsulation\.ShadowDom
 })
 export class MatHeaderCellWrapperComponent {
     static CUSTOM_ELM_NAME = 'mat-header-cell-wrapper';

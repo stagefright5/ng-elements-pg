@@ -4,10 +4,10 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
     selector: 'mat-row-wrapper',
     template: `
         <mat-row *matRowDef="let row; columns: displayedColumns">
-            <slot name="row"></slot>
+            <ng-content select="[row]"></ng-content>
         </mat-row>
     `,
-    encapsulation: ViewEncapsulation.ShadowDom
+    // encapsulation: ViewEncapsulation\.ShadowDom
 })
 export class MatRowWrapperComponent {
     static CUSTOM_ELM_NAME = 'mat-row-wrapper';

@@ -23,7 +23,7 @@ export class AppModule implements DoBootstrap {
     //     [MTB.MatTextColumn, 'mat-text-column'],
     // ]);
     ngDoBootstrap(appRef: ApplicationRef): void {
-        console.log('v1.2.1');
+        console.log('v1.2.5');
         // const comps = [Sf5InputComponent, Sf5TableComponent].concat(this._getComponentsFromModule(MTB));
         // console.log(
         //     `new Map([${comps.reduce((code, c) => (code += `[${c.name}, "${titleCaseToKebabCase(c.name)}"],`), '')}])`
